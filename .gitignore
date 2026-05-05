@@ -1,0 +1,7 @@
+node_modules/
+.env
+venv/
+*.exe
+engine
+dist/
+.DS_Store
