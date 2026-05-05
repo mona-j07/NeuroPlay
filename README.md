@@ -24,9 +24,11 @@ When you launch the game, you'll see your current **Level** and **Total Score**.
 - Click the cells where you saw the elements. 
 - **Feedback**: 
     - 🟢 **Green Glow**: Correct cell! The element will reappear.
-    - 🔴 **Red Glow**: Wrong cell! Level ends immediately.
+    - 🔴 **Red Glow**: Wrong cell! **Game Over** - you fail the level immediately and must retry.
 
----
+### 4. Infinite Progression
+- There is no "final" level. The grid size (up to 8x8) and pattern density will keep increasing as long as you can keep up!
+- Click the **EXIT** button in the top right at any time to close the game.
 
 ## 📊 Interpreting Your Results
 
