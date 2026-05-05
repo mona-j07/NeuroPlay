@@ -13,6 +13,16 @@
 - **Premium Aesthetics**: Dark mode, glassmorphism, and smooth animations.
 - **Adaptive Feedback**: Personalized suggestions based on performance.
 
+## 🎮 How to Play
+1. **Start Phase**: Click "START PHASE" to begin a level.
+2. **Memorize Phase**: Watch the grid carefully. Random shapes (● ■ ▲ ★) and colors will appear for 1.5–3 seconds.
+3. **Input Phase**: Once the patterns vanish, click the cells where you saw the elements as quickly as possible.
+4. **Feedback Phase**: The system will analyze your:
+   - **Accuracy**: Did you remember all positions?
+   - **Reflex**: How fast was your first and subsequent clicks?
+   - **Consistency**: Did you hesitate between choices?
+5. **Level Up**: Score at least **80% accuracy** to progress to more complex grids and faster timers!
+
 ## 🛠️ Deployment Instructions
 
 ### Backend (Render)
