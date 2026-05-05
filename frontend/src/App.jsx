@@ -30,7 +30,11 @@ const App = () => {
     if (lvl === 2) return { size: 3, count: 5, time: 2.5 };
     if (lvl === 3) return { size: 4, count: 6, time: 2.0 };
     if (lvl === 4) return { size: 4, count: 8, time: 1.8 };
-    return { size: 5, count: 10 + (lvl - 5) * 2, time: 1.5 };
+    // Infinite progression beyond level 4
+    const size = Math.min(5 + Math.floor((lvl - 5) / 5), 8); // Max 8x8 grid
+    const count = 10 + (lvl - 5) * 2;
+    const time = Math.max(1.5 - (lvl - 5) * 0.1, 0.5); // Minimum 0.5s
+    return { size, count, time };
   };
 
   const generatePattern = () => {
@@ -152,6 +156,13 @@ const App = () => {
             <span className="stat-label">Total Score</span>
             <span className="stat-value">{Math.round(totalScore)}</span>
           </div>
+          <button 
+            className="btn" 
+            style={{ padding: '0.5rem 1.5rem', background: 'var(--accent-red)' }}
+            onClick={() => window.close()}
+          >
+            EXIT
+          </button>
         </div>
       </header>
 

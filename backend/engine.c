@@ -69,10 +69,42 @@ int main() {
         }
     }
 
-    // 1. MEMORY SCORE
-    // For simplicity in this demo, we'll assume the frontend only sends valid cells
-    // but the backend validates the count. In a real app, we'd check the grid coords.
-    float accuracy = (total_targets > 0) ? ((float)click_count / total_targets) * 100.0f : 0;
+    // Parse pattern into a 2D array for verification
+    int grid[10][10] = {0};
+    pattern_ptr = strstr(input, "\"pattern\":");
+    if (pattern_ptr) {
+        int r = 0, c = 0;
+        char *p = strstr(pattern_ptr, "[");
+        if (p) p++;
+        while (*p && r < grid_size) {
+            if (*p == '1') {
+                grid[r][c] = 1;
+                c++;
+            } else if (*p == '0') {
+                grid[r][c] = 0;
+                c++;
+            }
+            if (c >= grid_size) {
+                c = 0;
+                r++;
+            }
+            p++;
+        }
+    }
+
+    // 1. MEMORY SCORE & VALIDATION
+    int correct_clicks = 0;
+    int has_error = 0;
+    for (int i = 0; i < click_count; i++) {
+        if (grid[clicks[i].row][clicks[i].col] == 1) {
+            correct_clicks++;
+        } else {
+            has_error = 1;
+        }
+    }
+
+    float accuracy = (total_targets > 0) ? ((float)correct_clicks / total_targets) * 100.0f : 0;
+    if (has_error) accuracy *= 0.5f; // Heavy penalty for wrong clicks
     if (accuracy > 100.0f) accuracy = 100.0f;
 
     // 2. REACTION SCORE
